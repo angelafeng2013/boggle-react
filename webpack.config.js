@@ -43,6 +43,7 @@
 /* eslint-disable no-var */
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -61,7 +62,10 @@ module.exports = {
   devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('index.css', {
+      allChunks: true
+    })
   ],
   module: {
     loaders: [
@@ -69,7 +73,10 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'scripts')
-      }
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.json$/, loader: 'json' },
     ]
   }
 };

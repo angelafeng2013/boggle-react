@@ -1,0 +1,55 @@
+.gameRoot {
+  background-color: #F57921;
+  height: 700px;
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.logo {
+  background: url('../assets/boggle_logo.png');
+  height: 100px;
+  width: 240px;
+  margin: 0 auto;
+
+}
+
+.board {
+  height: 330px;
+  width: 330px;
+  margin: 0 auto;
+  margin-top: 15px;
+  border: 4px solid #FFCA08;
+}
+
+.innerBoard {
+  background-color: #398BD4;
+  height: 320px;
+  width: 320px;
+  padding: 5px;
+}
+
+.letters {
+  margin: 5px;
+  width: 54px;
+  height: 54px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: -2px 2px 2px #343738;
+}
+.text {
+  margin: 18px;
+  text-align: center;
+  font-family: arial;
+  font-weight: bold;
+}
+.activeLetter {
+  background-color: #ACCEEC;
+  margin: 5px;
+  width: 54px;
+  height: 54px;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: -2px 2px 2px #343738;
+}
