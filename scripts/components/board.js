@@ -29,6 +29,7 @@ var Board = React.createClass({
         }
       }
     } while (usedDice.length < 25);
+    this.setState({letters: letters});
   },
   getInitialState: function() {
     return {reset: false, letters: [], currentWord: "", currentKeys: []};
