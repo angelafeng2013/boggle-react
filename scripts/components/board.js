@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import rows from '../lib/letters.json';
+import dice from '../lib/dice.json';
 import ScoreBoard from './scoreBoard';
 import utils from '../lib/utils';
 import Letter from './letters';
@@ -9,27 +9,19 @@ var Board = React.createClass({
   // loads shuffled letters from the letters library
   loadLetters: function() {
     var letters = []
-    var usedRows = [];
-    var shuffledRow;
-    do {
-      var randomRow = Math.floor(Math.random() * 24 + 1);
-      // checks to see if randomRow has been used yet
-      if (usedRows.indexOf(randomRow) == -1) {
-        usedRows.push(randomRow);
-        shuffledRow = utils.shuffle(rows[randomRow]);
-        // pushes the first 5 letters from the shuffled row into the letters
-        // array as objects with extra properties
-        for (var i =0; i < 5; i++) {
-          if (shuffledRow[i] == 'q'){
-            letters.push({"letter": "Qu", "key": letters.length, 'enabled': true});
-          } else {
-            letters.push({"letter": shuffledRow[i].toUpperCase(),
-                          "key": letters.length, 'enabled': true});
-          }
-        }
+    var randomFace;
+    // loops through 25 rows of dice in dice.json
+    for (var i=0; i<25; i++) {
+      // chooses a random face for the dice to land on
+      randomFace = Math.floor(Math.random() * 5 + 1)
+      // adds the chosen letter to the letters array as an object
+      if (dice[i][randomFace] == 'q'){
+        letters.push({"letter": "Qu", "key": letters.length, 'enabled': true});
+      } else {
+        letters.push({"letter": dice[i][randomFace].toUpperCase(),
+                      "key": letters.length, 'enabled': true});
       }
-    // continues to add more rows until 5 rows have been added
-    } while (usedRows.length < 5);
+    }
     this.setState({letters: letters});
   },
   getInitialState: function() {
