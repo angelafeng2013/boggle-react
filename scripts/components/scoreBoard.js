@@ -61,7 +61,7 @@ var ScoreBoard = React.createClass({
         <div className="currentWord">
           <strong>Current Word:</strong> {this.props.currentWord.toUpperCase()}
           <button className="submit" onClick={this.scoreWord}>Submit Word</button>
-      </div>
+        </div>
         <div className="scoreBoard">
           <strong>
             <div className="leftScore"> Word </div>
