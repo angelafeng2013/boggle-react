@@ -8,8 +8,8 @@ var ScoreBoard = React.createClass({
   getInitialState: function() {
     return {currentWord: this.props.currentWord, scoredWords: [], totalScore: 0};
   },
-  scoreWord: function(word) {
-    var lowerCaseWord = word.toLowerCase();
+  scoreWord: function() {
+    var lowerCaseWord = this.state.currentWord.slice().toLowerCase();
     var currentScoredWords = this.state.scoredWords.slice(0);
     // checks to see if the submited word is in dict.json and has not already been submited
     if (Dictionary.indexOf(lowerCaseWord) != -1 && !searchArray(currentScoredWords, lowerCaseWord)) {
@@ -60,7 +60,11 @@ var ScoreBoard = React.createClass({
     });
     return (
       <div>
-        <CurrentWord onClick={this.scoreWord} word={this.props.currentWord} />
+        // <CurrentWord onClick={this.scoreWord} word={this.props.currentWord} />
+      <div className="currentWord">
+        <strong>Current Word:</strong> {this.props.currentWord.toUpperCase()}
+        <button className="submit" onClick={this.scoreWord}>Submit Word</button>
+      </div>
         <div className="scoreBoard">
           <strong>
             <div className="leftScore"> Word </div>

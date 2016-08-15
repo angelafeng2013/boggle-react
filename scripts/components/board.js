@@ -5,7 +5,7 @@ import Letter from './letters';
 
 // Base component for Boggle Board
 var Board = React.createClass({
-  // loads shuffled letters from the letters library
+  // loads shuffled letters from dice library
   loadLetters: function() {
     var letters = []
     var randomFace;
