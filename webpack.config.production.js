@@ -65,7 +65,7 @@ module.exports = {
       compress: {
         warnings: false
       }
-    })
+    }),
     new ExtractTextPlugin('index.css', {
       allChunks: true
     })
