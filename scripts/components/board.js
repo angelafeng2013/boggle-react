@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import dice from '../lib/dice.json';
 import ScoreBoard from './scoreBoard';
-import utils from '../lib/utils';
 import Letter from './letters';
 
 // Base component for Boggle Board
@@ -10,19 +9,26 @@ var Board = React.createClass({
   loadLetters: function() {
     var letters = []
     var randomFace;
+    var randomDie;
+    var usedDice = [];
     // loops through 25 rows of dice in dice.json
-    for (var i=0; i<25; i++) {
-      // chooses a random face for the dice to land on
-      randomFace = Math.floor(Math.random() * 5 + 1)
-      // adds the chosen letter to the letters array as an object
-      if (dice[i][randomFace] == 'q'){
-        letters.push({"letter": "Qu", "key": letters.length, 'enabled': true});
-      } else {
-        letters.push({"letter": dice[i][randomFace].toUpperCase(),
-                      "key": letters.length, 'enabled': true});
+    do {
+      // chooses a random dice to use from the 25
+      randomDie = Math.floor(Math.random() * 25);
+      // checks to see if the die was used already
+      if (usedDice.indexOf(randomDie) == -1) {
+        usedDice.push(randomDie);
+        // chooses a random face for the dice to land on
+        randomFace = Math.floor(Math.random() * 6);
+        // adds the chosen letter to the letters array as an object
+        if (dice[randomDie][randomFace] == 'q'){
+          letters.push({"letter": "Qu", "key": letters.length, 'enabled': true});
+        } else {
+          letters.push({"letter": dice[randomDie][randomFace].toUpperCase(),
+                        "key": letters.length, 'enabled': true});
+        }
       }
-    }
-    this.setState({letters: letters});
+    } while (usedDice.length < 25);
   },
   getInitialState: function() {
     return {reset: false, letters: [], currentWord: "", currentKeys: []};
