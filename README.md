@@ -1,6 +1,31 @@
 Boggle Project
 ==============
 
+Tara's Completed Project
+------------------------
+
+Hi Oddball! I completed nerded out this weekend and relived my childhood while 
+making Boggle. Here's a screenshot of the finished product:
+
+![completed screenshot](./assets/completed_screenshot.png)
+
+Extra libraries and technologies:
+
+    css-loader
+    style-loader
+    extract-text-webpackplugin
+    url-loader
+    json-loader
+    classnames
+
+You should be able to `npm install` all the new modules from package.json and 
+`npm start` as usual to see it on localhost.
+
+I added in a lot of comments on the components to walk you through my logic and 
+I put the dictionaries and util functions into `/scripts/lib/`.
+
+Let me know if you have any questions! Looking forward to chatting soon.
+
 Running
 -------
 

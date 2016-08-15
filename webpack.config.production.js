@@ -41,6 +41,7 @@
 /* eslint-disable no-var */
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './scripts/index',
@@ -65,6 +66,9 @@ module.exports = {
         warnings: false
       }
     })
+    new ExtractTextPlugin('index.css', {
+      allChunks: true
+    })
   ],
   module: {
     loaders: [
@@ -72,7 +76,10 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'scripts')
-      }
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.json$/, loader: 'json' }
     ]
   }
 };

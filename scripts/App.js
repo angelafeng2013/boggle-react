@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Board from './board';
+import Board from './components/board';
 import '../style/index.css';
 
 export default class App extends Component {
