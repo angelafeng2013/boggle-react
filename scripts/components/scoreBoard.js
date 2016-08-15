@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
-import classNames from 'classnames';
-import CurrentWord from './currentWord';
 import Dictionary from '../lib/dict.json';
 import searchArray from '../lib/utils';
 
 var ScoreBoard = React.createClass({
   getInitialState: function() {
-    return {currentWord: this.props.currentWord, scoredWords: [], totalScore: 0};
+    return {scoredWords: [], totalScore: 0};
   },
   scoreWord: function() {
-    var lowerCaseWord = this.state.currentWord.slice().toLowerCase();
+    var lowerCaseWord = this.props.currentWord.toLowerCase();
     var currentScoredWords = this.state.scoredWords.slice(0);
     // checks to see if the submited word is in dict.json and has not already been submited
     if (Dictionary.indexOf(lowerCaseWord) != -1 && !searchArray(currentScoredWords, lowerCaseWord)) {
@@ -43,7 +41,7 @@ var ScoreBoard = React.createClass({
       }
       totalScore += score;
       currentScoredWords.push({word: lowerCaseWord, score: score});
-      this.setState({currentWord: "", scoredWords: currentScoredWords, totalScore: totalScore});
+      this.setState({scoredWords: currentScoredWords, totalScore: totalScore});
     }
     this.props.reset();
   },
@@ -60,11 +58,10 @@ var ScoreBoard = React.createClass({
     });
     return (
       <div>
-        // <CurrentWord onClick={this.scoreWord} word={this.props.currentWord} />
-      <div className="currentWord">
-        <strong>Current Word:</strong> {this.props.currentWord.toUpperCase()}
-        <button className="submit" onClick={this.scoreWord}>Submit Word</button>
-      </div>
+        <div className="currentWord">
+          <strong>Current Word:</strong> {this.props.currentWord.toUpperCase()}
+          <button className="submit" onClick={this.scoreWord}>Submit Word</button>
+        </div>
         <div className="scoreBoard">
           <strong>
             <div className="leftScore"> Word </div>

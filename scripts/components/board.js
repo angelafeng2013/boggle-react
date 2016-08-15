@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import dice from '../lib/dice.json';
 import ScoreBoard from './scoreBoard';
-import Letter from './letters';
+import Letter from './letter';
 
 // Base component for Boggle Board
 var Board = React.createClass({
