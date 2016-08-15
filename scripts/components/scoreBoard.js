@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import Dictionary from '../lib/dict.json';
 import searchArray from '../lib/utils';
 
