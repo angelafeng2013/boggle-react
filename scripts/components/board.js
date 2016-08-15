@@ -5,7 +5,7 @@ import Letter from './letter';
 
 // Base component for Boggle Board
 var Board = React.createClass({
-  // loads letters from the dice library
+  // loads shuffled letters from dice library
   loadLetters: function() {
     var letters = []
     var randomFace;
@@ -101,13 +101,12 @@ var Board = React.createClass({
   resetLetters: function() {
     // resets all the letters to enabled and clears currentWord and currentKeys
     var letterState = this.state.letters.slice();
-    var reset = this.state.reset;
     letterState = letterState.map(function(letter) {
         var newLetter = letter;
         newLetter.enabled = true;
         return newLetter;
     });
-    this.setState({letters: letterState, reset: !reset, currentWord: "",
+    this.setState({letters: letterState, reset: !this.state.reset, currentWord: "",
                    currentKeys: []});
   },
   render: function() {
