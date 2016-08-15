@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import CurrentWord from './currentWord';
 import Dictionary from '../lib/dict.json';
-import utils from '../lib/utils';
+import searchArray from '../lib/utils';
 
 var ScoreBoard = React.createClass({
   getInitialState: function() {
@@ -12,7 +12,7 @@ var ScoreBoard = React.createClass({
     var lowerCaseWord = word.toLowerCase();
     var currentScoredWords = this.state.scoredWords.slice(0);
     // checks to see if the submited word is in dict.json and has not already been submited
-    if (Dictionary.indexOf(lowerCaseWord) != -1 && !utils.searchArray(currentScoredWords, lowerCaseWord)) {
+    if (Dictionary.indexOf(lowerCaseWord) != -1 && !searchArray(currentScoredWords, lowerCaseWord)) {
       var score = 0;
       var totalScore = this.state.totalScore.valueOf();
       // sets the score based on how long the submitted word is

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import dice from '../lib/dice.json';
 import ScoreBoard from './scoreBoard';
-import utils from '../lib/utils';
 import Letter from './letters';
 
 // Base component for Boggle Board
