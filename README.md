@@ -5,7 +5,12 @@ Tara's Completed Project
 ------------------------
 
 Hi Oddball! I completely nerded out this weekend and relived my childhood while 
-making Boggle. Here's a screenshot of the finished product:
+making Boggle. 
+
+Click [here](https://tarastrauss.github.io/boggle-react/) for the deployed 
+version on gh-pages.
+
+Here's a screenshot of the finished product:
 
 ![completed screenshot](./assets/completed_screenshot.png)
 
