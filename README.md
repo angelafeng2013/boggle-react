@@ -4,7 +4,7 @@ Boggle Project
 Tara's Completed Project
 ------------------------
 
-Hi Oddball! I completed nerded out this weekend and relived my childhood while 
+Hi Oddball! I completely nerded out this weekend and relived my childhood while 
 making Boggle. Here's a screenshot of the finished product:
 
 ![completed screenshot](./assets/completed_screenshot.png)
